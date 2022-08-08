@@ -1,0 +1,738 @@
+@import url('https://fonts.googleapis.com/css2?family=Maven+Pro:wght@400;700&family=Mulish:wght@200;500;700;900;1000&display=swap');
+
+:root {
+    --color--background: #fff;
+
+    --color--active: #444;
+    --color--active--shadow: #333;
+
+    --color--primary--light: #7ac;
+    --color--primary--medium: #368;
+    --color--primary--dark: #257;
+
+    --color--secondary: rgb(178, 0, 0);
+
+    --color--gray--light: #eee;
+    --color--gray--mediumlight: #ddd;
+    --color--gray--medium: #aaa;
+    --color--gray--dark: #333;
+
+    --color--shadow: #ddd;
+    --border: none;
+
+    --aside--color: #ddd;
+    --color--black: #000;
+    --color--white: #fff;
+
+    --color--textmuted: #666;
+
+    --etec--logo--url: url("../img/etec.png");
+    --cps--logo--url: url("../img/cps.png");
+    --sp--logo--url: url("../img/sp.png");
+}
+
+
+/*===============================DARK THEME===============================*/
+
+.dark-theme-variables {
+    --color--background: #222;
+
+    --color--active: #333;
+    --color--active--shadow: #444;
+
+    --color--primary--light: #47a;
+    --color--primary--medium: #146;
+    --color--primary--dark: #035;
+
+    --color--secondary: rgb(178, 0, 0);
+
+    --color--gray--light: #333;
+    --color--gray--mediumlight: #444;
+    --color--gray--medium: #555;
+    --color--gray--dark: #777;
+
+    --color--shadow: transparent;
+    --aside--shadow: #333;
+    --border: 2px solid #333;
+
+    --aside--color: #111;
+    --color--black: #fff;
+    --color--white: #000;
+
+    --color--textmuted: #666;
+
+    --etec--logo--url: url("../img/etec2.png");
+    --cps--logo--url: url("../img/cps2.png");
+    --sp--logo--url: url("../img/sp2.png");
+}
+
+/*===============================END DARK THEME===============================*/
+
+* {
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    font-family: 'Mulish', sans-serif;
+    border-collapse: collapse;
+    transition: all 100ms ease;
+}
+
+a {
+    color: inherit;
+}
+
+body {
+    display: grid;
+    grid-template-columns: 15vw 60vw 25vw;
+    background-color: var(--color--background);
+    overflow-x: hidden;
+}
+
+/*===============================ASIDE===============================*/
+
+aside {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    position: relative;
+    background-color: var(--aside--color);
+}
+
+aside .top {
+    display: flex;
+    flex-direction: row;
+    height: 3.1rem;
+    box-sizing: border-box;
+    justify-content: space-around;
+}
+
+aside .top h1 {
+    font-size: 43px;
+    color: var(--color--primary--dark);
+    font-weight: 800;
+    cursor: default;
+    display: block;
+    padding: 0;
+    height: 30px;
+    margin-top: -3px;
+}
+
+aside .top h1 span {
+    color: var(--color--secondary);
+}
+
+aside .close {
+    display: none;
+    cursor: pointer;
+}
+
+.aluno {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 15px;
+    margin-bottom: 35px;
+    width: 100%;
+    text-align: center;
+    cursor: default;
+    color: var(--color--black);
+}
+
+.img_aluno {
+    background-color: var(--color--gray--medium);
+    overflow: hidden;
+    height: 100px;
+    width: 100px;
+    border-radius: 50px;
+    border: 4px solid var(--color--primary--medium);
+    margin-bottom: 10px;
+    box-sizing: border-box;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.img_aluno p{
+    z-index: 1;
+    font-size: 15px;
+}
+
+.img_aluno img {
+    width: 96px;
+    z-index: 2;
+    transition: all 300ms ease;
+}
+
+.aluno span {
+    font-weight: bold;
+}
+
+aside a {
+    display: block;
+}
+
+.sidebar {
+    height: 100%;
+    width: 100%;
+}
+
+.sidebar .btn {
+    font-size: 17px;
+    font-weight: 200;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    color: var(--color--black);
+}
+
+.sidebar .btn:hover .btn_box{
+    padding-left: 35px;
+    color: var(--color--primary--dark);
+}
+
+.sidebar .btn:last-child:hover .btn_box{
+    color: var(--color--secondary);
+}
+
+.sidebar .btn_box {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: 100%;
+    padding: 15px 0 15px 30px;
+    transition: all 300ms ease;
+    box-sizing: border-box;
+}
+
+.sidebar .active {
+    background-color: var(--color--active);
+    color: var(--color--primary--light);
+    text-shadow: 0px 0px 5px var(--color--active--shadow);
+}
+
+.sidebar .active:before {
+    content: '';
+    width: 6px;
+    height: 59px;
+    background-color: var(--color--primary--medium); 
+    display: block;
+}
+
+.sidebar .active:hover .btn_box {
+    padding: 15px 0 15px 30px;
+    background-color: var(--color--active);
+    color: var(--color--primary--light);
+    cursor: default;
+}
+
+.sidebar .btn .icon {
+    margin-right: 15px;
+}
+
+.sidebar .btn:last-child {
+    bottom: 20px;
+    position: absolute;
+}
+
+/*===============================END ASIDE===============================*/
+
+/*===============================TOP===============================*/
+
+section.top {
+    height: 100px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+}
+
+section.top .logo {
+    overflow: hidden;
+    flex: 1;
+}
+
+#etec {
+    height: 60px;
+    background-image: var(--etec--logo--url);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+}
+
+#cps {
+    height: 60px;
+    background-image: var(--cps--logo--url);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+}
+
+#sp {
+    height: 60px;
+    background-image: var(--sp--logo--url);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+}
+
+/*===============================END TOP===============================*/
+
+/*===============================MID===============================*/
+
+.status {
+    display: flex;
+    flex-direction: row;
+    font-size: 20px;
+    margin-bottom: 50px;
+    color: var(--color--black);
+}
+
+.status .container {
+    width: 100%;
+    height: 100px;
+    font-size: 15px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    padding: 20px;
+    margin-left: 1rem;
+    margin-right: 1rem;
+    box-shadow: 0px 0px 50px var(--color--shadow);
+    border: var(--border);
+}
+
+/*-------------faltas-------------*/
+
+.faltas_geral {
+    width: 100%;
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    cursor: default;
+    flex: 1;
+}
+
+.faltas_geral .perc:hover {
+    color: green;
+    text-shadow: 0px 0px 1px var(--color--gray--medium);
+}
+
+.faltas_geral h3 {
+    font-size: 20px; 
+}
+
+.faltas_geral svg {
+    height: 70px;
+    width: 70px;
+    margin-left: 30px;
+}
+
+.faltas_geral svg circle {
+    fill: var(--color--gray--light);
+    stroke: green;
+    stroke-width: 5px;
+    stroke-linecap: round;
+    stroke-dasharray: 152;
+    stroke-dashoffset: 0;
+}
+
+.perc_geral::after {
+    content: "78%";
+    position: absolute;
+    bottom: 28px;
+    right: 42px;
+    font-weight: bold;
+}
+
+/*-------------end faltas-------------*/
+
+/*-------------cps e ms-------------*/
+
+.cps_ms {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex: 1;
+}
+
+.cps_ms h3 {
+    font-size: 20px;
+}
+
+.cps_ms a {
+    background-color: var(--color--primary--medium);
+    display: block;
+    color: var(--color--white);
+    padding: 5px;
+    margin-top: 10px;
+    transition: all 200ms ease;
+}
+
+.cps_ms a:hover {
+    background-color: var(--color--primary--light);
+    color: var(--color--black);
+}
+
+/*-------------end faltas-------------*/
+
+/*-------------avisos-------------*/
+
+.container:nth-child(3) {
+    font-size: 20px;
+    background-color: #ccc;
+    color: var(--color--textmuted);
+}
+
+
+/*-------------end avisos-------------*/
+
+/*-------------mailbox-------------*/
+
+.mailbox {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    box-sizing: border-box;
+}
+
+.mailbox h2 {
+    font-size: 30px;
+    color: var(--color--black);
+}
+
+.mailbox table {
+    margin-top: 40px;
+    width: 100%;
+    text-align: center;
+    color: var(--color--black);
+    box-shadow: 0px 10px 30px var(--color--shadow);
+    border: var(--border);
+}
+
+.mailbox th {
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.mailbox th:nth-child(1) {
+    width: 20%;
+}
+
+.mailbox th:nth-child(3) {
+    width: 20%;
+    border-right: none;
+}
+
+.mailbox tbody tr {
+    transition: all 150ms ease;
+}
+
+.mailbox tbody tr:nth-child(odd) {
+    background-color: var(--color--gray--light);
+}
+
+.mailbox tbody tr:hover {
+    background-color: var(--color--gray--mediumlight);
+}
+
+.mailbox td {
+    padding: 15px;
+    cursor: pointer;
+    height: 50px;
+    box-sizing: border-box;
+}
+
+.mailbox .mid {
+    text-align: left;
+}
+
+/*-------------end mailbox-------------*/
+
+/*===============================END MID===============================*/
+
+/*===============================RIGHT===============================*/
+
+.right {
+    display: flex;
+    flex-direction: column;
+}
+
+/*-------------top-------------*/
+
+.right .top {
+    height: 3.1rem;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    background-color: var(--aside--color);
+}
+
+.top .date {
+    color: var(--color--textmuted);
+    letter-spacing: 1px;
+    cursor: default;
+}
+
+.theme {
+    background-color: var(--color--gray--medium);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    box-shadow: inset 0px 0px 5px #000;
+    user-select: none;
+    height: 30px;
+}
+
+.theme span {
+    padding: 3px;
+    cursor: pointer;
+}
+
+.theme span:nth-child(1) {
+    border-bottom-left-radius: 10px;
+    border-top-left-radius: 10px;
+}
+
+.theme span:nth-child(2) {
+    border-bottom-right-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.theme .active {
+    background-color: var(--color--primary--dark);
+    color: #fff;
+}
+
+.notific {
+    background-color: var(--color--primary--dark);
+    color: #fff;
+    padding: 3px;
+    border-radius: 50px;
+    cursor: pointer;
+    box-shadow: 0px 0px 3px var(--color--shadow);
+    border: 2px solid var(--color--border);
+    transition: all 300ms ease;
+}
+
+.notific:hover {
+    transform: scale(1.05);
+}
+
+.notific:hover .new_notification {
+    display: none;
+}
+
+.new_notification {
+    display: none;
+    font-size: 18px;
+    position: absolute;
+    background-color: var(--color--secondary);
+    padding: 3px;
+    border-radius: 10px;
+    top: 17px;
+    right: 310px;
+    height: 7px;
+    width: 7px;
+}
+
+html:hover .warning {
+    animation-name: warning;
+    animation-duration: 200ms;
+    animation-iteration-count: 6;
+    animation-direction: alternate;
+}
+
+/*-------------end top-------------*/
+
+/*-------------news-------------*/
+
+.news {
+    width: 100%;
+    margin-top: 45px;
+}
+
+.news h2 {
+    padding-right: 40%;
+    padding-left: 40%;
+    margin-bottom: 20px;
+    color: var(--color--black);
+}
+
+.post {
+    background-color: var(--color--white);
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    margin-bottom: 10px;
+    align-items: center;
+    transition: all 200ms ease;
+    cursor: pointer;
+    box-shadow: 0px 0px 10px var(--color--shadow);
+    border: var(--border);
+}
+
+.post p {
+    color: var(--color--black);
+    font-size: 14px;
+}
+
+.post img {
+    height: 100%;
+}
+
+.post .img_post {
+    height: 70px;
+    width: 70px;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    margin-right: 10px
+}
+
+.post:hover {
+    transform: translateX(5px);
+}
+
+/*-------------end news-------------*/
+
+/*===============================END RIGHT===============================*/
+
+/*===============================ANIMATIONS===============================*/
+
+@keyframes fadein {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes leftright_materia {
+    from {
+        margin-left: 70px;
+        opacity: 0;
+    }
+    to {
+        margin-left: 88px;
+        opacity: 1;
+    }
+}
+
+@keyframes leftright_list {
+    from {
+        left: 49%;
+        opacity: 0;
+    }
+    to {
+        left: 50%;
+        opacity: 1;
+    }
+}
+
+@keyframes rotate {
+    from {
+        rotate: 0;
+    }
+    to {
+
+    }
+}
+
+@keyframes warning {
+    from {
+        background-color: var(--color--primary--dark);
+    }
+    to {
+        background-color: var(--color--secondary);
+    }
+}
+
+/*===============================END ANIMATIONS===============================*/
+
+
+
+/*==========================================================ALUNO==========================================================*/
+.dados {
+    height: 86.6vh;
+    width: 100%;
+    padding: 20px;
+    box-sizing: border-box;
+    color: var(--color--black);
+}
+
+.window{
+    display: none;
+}
+
+section.active {
+    display: block;
+}
+
+/*===============================PRESENCAS===============================*/
+
+.bt_presenca {
+    position: absolute;
+}
+
+.presencas {
+    padding: 10px;
+    border: var(--border);
+    box-shadow: 0px 10px 30px var(--color--shadow);
+}
+
+.presencas table {
+    width: 100%;
+}
+
+.presencas th {
+    text-align: center;
+    padding: 5px;
+    font-size: 17px;
+}
+
+.presencas tbody {
+    font-size: 14px;
+}
+
+.presencas tbody tr {
+    transition: all 300ms ease;
+}
+
+.presencas tbody tr:nth-child(even) td:nth-child(odd) {
+    border-right: .05rem solid #bbb;
+}
+
+.presencas tbody tr:nth-child(odd){
+    background-color: var(--color--gray--light)
+}
+
+.presencas tbody tr:nth-child(odd) td:nth-child(even){
+    border-right: .05rem solid #bbb;
+}
+
+.presencas tbody tr:hover {
+    background-color: var(--color--gray--mediumlight);
+}
+
+.presencas tr td:last-child {
+    border-right: none;
+}
+
+.presencas td:nth-child(1) {
+    width: 350px;
+}
+
+.presencas td:nth-child(n+2) {
+    text-align: center;
+}
